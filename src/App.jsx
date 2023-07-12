@@ -13,7 +13,7 @@ import Inicio from "./pages/Inicio";
 
 const navLinks = [
   {
-    title: "Inicio", path: "/", icon: <HomeRoundedIcon />
+    title: "Inicio", path: "/",  icon: <HomeRoundedIcon />
   },
   {
     title: "Catalogo", path: "Catalogo", icon: <StoreRoundedIcon />

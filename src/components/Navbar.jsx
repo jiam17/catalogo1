@@ -5,6 +5,8 @@ import NavListDrawer from "./NavListDrawer";
 
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link } from "react-router-dom";
+import Imagen from "../assets/image/imagen.png";
+
 
 
 export default function Navbar({ navLinks }) {
@@ -13,19 +15,27 @@ export default function Navbar({ navLinks }) {
 
     return (
         <>
-            <AppBar position="static">
+        {/**imagen de fondo */}
+            <div style={{ ...styles.backgroundImage }}>
+                  <img src={Imagen} alt="" style={{ width: "100%", height: "100%" }} />
+             </div>
+            <AppBar position="static" className="navbar" sx={{ backgroundColor: "rgba(255, 255, 255, 0.5)" }}>
                 <Toolbar>
                     <IconButton
-                        color="inherit"
+                        color="black"
                         size="large"
                         onClick={() => setOpen(true)}
                         sx={{ display: { xs: "flex", sm: "none" } }}
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="h6" sx={{ flexGrow: 1 }}>
-                        FourLunas
+                    <Typography variant="h4" className="navbar-title" sx={{ flexGrow: 1, fontFamily: 'Montserrat' }}>
+                        <Link to="/" className="navLink">Coco4lunas</Link>
                     </Typography>
+                    <Typography variant="h6" className="navbar-messaje" sx={{ flexGrow: 8, fontFamily: 'Montserrat', fontSize: '1.2rem', alignSelf: 'center' }}>
+                        100% Orgánico
+                    </Typography>
+
                     <Box sx={{ display: { xs: "none", sm: "block" } }}>
                         {
                             //obteniendo la lista de botones navLinks
@@ -35,6 +45,7 @@ export default function Navbar({ navLinks }) {
                                     color="inherit"
                                     key={item.title}
                                     to={item.path}
+                                    sx={{ color: "black" }}
                                 >
                                     {item.title}
                                 </Button>
@@ -54,3 +65,18 @@ export default function Navbar({ navLinks }) {
         </>
     )
 }
+
+//estilos de la imagen
+const styles = {
+    backgroundImage: {
+      position: "fixed",
+      top: 0,
+      left: 0,
+      zIndex: -1,
+      width: "100%",
+      height: "auto",
+    },
+  };
+  
+  
+  
